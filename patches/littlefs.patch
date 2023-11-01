@@ -1,0 +1,12 @@
+--- old/.pio/libdeps/esp32/LittleFS_esp32/src/LITTLEFS.cpp
++++ new/.pio/libdeps/esp32/LittleFS_esp32/src/LITTLEFS.cpp
+@@ -41,7 +41,7 @@
+
+ bool LITTLEFSImpl::exists(const char* path)
+ {
+-    File f = open(path, "r");
++    File f = open(path, (const char*)"r",true);
+     return (f == true);
+ }
+
+
