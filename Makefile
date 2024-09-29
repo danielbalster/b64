@@ -1,6 +1,8 @@
 ZIMMERSNET=http://www.zimmers.net/anonftp/pub/cbm/firmware/computers/c64
 
 all:: roms/basic roms/chargen roms/kernal
+	time pio run
+	make patch
 	pio run
 
 upload::
