@@ -7,6 +7,10 @@ This was a fun project I did december 2019 without any purpose.
 
 It's an emulator of the C64 running on an ESP32. It is meant to output textmode only to a serial console and it can also drive a SID chip to output music.
 
+Note: to actually use the SID chip, you require to build this: https://oshwlab.com/dbalster/esp32-sid
+
+Otherwise it's just C64+basic on an ESP32 :-)
+
 ## Features
 
 - SD-CARD and Flash support
