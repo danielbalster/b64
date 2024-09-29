@@ -2,8 +2,8 @@ ZIMMERSNET=http://www.zimmers.net/anonftp/pub/cbm/firmware/computers/c64
 
 all:: roms/basic roms/chargen roms/kernal
 	pio run || true
-	patch -p1 < patches/littlefs.patch
-	patch -p1 < patches/webauthentication.patch
+	patch -p1 < patches/littlefs.patch  || true
+	patch -p1 < patches/webauthentication.patch  || true
 	pio run
 
 upload::
