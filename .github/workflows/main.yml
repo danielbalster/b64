@@ -12,6 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install dependencies
-        run: sudo apt-get update && sudo apt-get install curl build-essential platformio
+        run: sudo apt-get update && sudo apt-get install curl build-essential python3-pip
+      - name: Install PlatformIO
+        run: sudo -H pip3 install platformio
       - name: Build with PlatformIO
         run: make all
