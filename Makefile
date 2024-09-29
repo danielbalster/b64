@@ -1,8 +1,9 @@
 ZIMMERSNET=http://www.zimmers.net/anonftp/pub/cbm/firmware/computers/c64
 
 all:: roms/basic roms/chargen roms/kernal
-	time pio run
-	make patch
+	pio run || true
+	patch -p1 < patches/littlefs.patch
+	patch -p1 < patches/webauthentication.patch
 	pio run
 
 upload::
@@ -10,10 +11,6 @@ upload::
 
 clean::
 	pio run -t clean
-
-patch::
-	patch -p1 < patches/littlefs.patch
-	patch -p1 < patches/webauthentication.patch
 
 roms/basic:
 	curl $(ZIMMERSNET)/basic.901226-01.bin -o $@
