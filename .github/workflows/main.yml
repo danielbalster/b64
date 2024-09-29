@@ -11,7 +11,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Install dependencies
         run: sudo apt-get update && sudo apt-get install curl build-essential python3-pip
       - name: Install PlatformIO
@@ -19,13 +19,13 @@ jobs:
       - name: Build with PlatformIO
         run: make all
       - name: Upload
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: firmware.elf
           path: .pio/build/esp32/firmware.elf
       - name: Upload release asset
         if: github.event_name == 'release' && (github.event.action == 'published' || github.event.action == 'created')
-        uses: actions/upload-release-asset@v1
+        uses: actions/upload-release-asset@v4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
