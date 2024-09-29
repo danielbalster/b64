@@ -3059,21 +3059,26 @@ void setup()
     }
   });
 
+  Serial.println("[Server]...");
   server.begin();
 
   //disableCore0WDT();
   //disableCore1WDT();
-  disableLoopWDT();
+  //disableLoopWDT();
 
   ansi = new AnsiRenderer();
  
+  Serial.println("[IO]...");
   io.init();
   //reu.init(2);
+  Serial.println("[Mem]...");
   memory_init();
   init_mappings();
   monitor_init();
+  Serial.println("[VIC]...");
   vic.setup();
 
+  Serial.println("[CPU]...");
   cpu.init();
   cpu.setpatch(0xf49e,hijacked_load,"LOAD");
   cpu.setpatch(0xF34A,hijacked_open,"OPEN");
@@ -3094,6 +3099,7 @@ void setup()
   cpu.setpatch(0xED09 ,hijacked_talk,"TALK");
   cpu.setpatch(0xFFE7, hijacked_clall,"CLALL");
 
+  Serial.println("[Reset]...");
   reset();
   pathname.changeDir();
 

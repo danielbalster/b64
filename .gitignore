@@ -1,3 +1,6 @@
 roms/basic
 roms/kernal
 roms/chargen
+.pio
+.vscode/c_cpp_properties.json
+.vscode/launch.json
